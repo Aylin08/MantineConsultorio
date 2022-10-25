@@ -1,19 +1,21 @@
-
-import { AppSh } from '../components/AppSh';
-
-import Layout from '../components/Layout';
+/** Main page */
+import React from 'react'
+import Login from './Login';
 
 
 const Home = () => {
-  
-
   return (
-    
     <div>
-       <Layout tituloPagina='Home'/>
-       <AppSh></AppSh>
+
+
+        <Login/>
+      
     </div>
+    
+    
   )
 }
 
+
+    
 export default Home
