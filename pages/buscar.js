@@ -35,7 +35,7 @@ const Buscar = () => {
                         />
 
                     </Group>
-                    <Group><Button onClick={busqueda} sx={(theme) => ({ backgroundColor: '#A1C298', '&:hover': { backgroundColor: theme.fn.darken('#A1C298', 0.05), }, })} > Buscador </Button> </Group>
+                    <Group><Button onClick={busqueda} sx={(theme) => ({ backgroundColor: '#FAAD82', '&:hover': { backgroundColor: theme.fn.darken('#FFD482', 0.05), }, })} > Buscador </Button> </Group>
 
                     <Table>
                         <thead>
