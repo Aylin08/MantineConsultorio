@@ -2,14 +2,14 @@
 
 import React from 'react'
 import Link from 'next/link'
-import {AppShell,Button,Stack,Navbar ,Header ,Title, MediaQuery, Burger,opened,theme,Text,useMantineTheme,Center,Image} from '@mantine/core';
+import { AppShell, Button, Stack, Navbar, Header, Title, MediaQuery, Burger, Text, useMantineTheme, Image } from '@mantine/core';
 import store from '../utils/store'
-import {useRouter} from 'next/router'
+import { useRouter } from 'next/router'
 import { useState } from 'react';
 const Appsh = ({ children, tituloPagina }) => {
 
   const router = useRouter();
-/**  @params function to log out, with path to start*/
+  /**  @params function to log out, with path to start*/
   function onLogOut() {
     store.deleteUsuario();
     router.push('/');
@@ -20,72 +20,72 @@ const Appsh = ({ children, tituloPagina }) => {
 
   return (
     <AppShell
-    styles={{
-      main: {
-        background: '#FFFFFF',
-      },
-    }}
-    navbarOffsetBreakpoint="sm"
-    asideOffsetBreakpoint="sm"
-    navbar={ 
-    <Navbar  p="md" hiddenBreakpoint="sm" hidden={!opened} width={{ sm: 200, lg: 300 }} sx={(theme) => ({ backgroundColor: '#FFFFFF' })}>
-      
-         <Stack sx={(theme) => ({ backgroundColor: '#FFFFFF' })}>
-           <Button sx={(theme) => ({ backgroundColor: '#A1C298', '&:hover': {backgroundColor: theme.fn.darken('#A1C298', 0.05),}, })} radius="lg" size="md" compact ><Link href='/imc'>Calcular IMC</Link></Button>
-           <Button sx={(theme) => ({ backgroundColor: '#A1C298', '&:hover': {backgroundColor: theme.fn.darken('#A1C298', 0.05),}, })} radius="lg" size="md" compact ><Link href='/calcular'>Calculo dietetico</Link></Button>
-           <Button sx={(theme) => ({ backgroundColor: '#A1C298', '&:hover': {backgroundColor: theme.fn.darken('#A1C298', 0.05),}, })} radius="lg" size="md" compact ><Link href='/buscar'>Buscar Alimento</Link></Button>
-           <Button sx={(theme) => ({ backgroundColor: '#A1C298', '&:hover': {backgroundColor: theme.fn.darken('#A1C298', 0.05),},})} radius="lg" size="md" compact  onClick={onLogOut}>Cerrar sesión</Button>
-         </Stack>
-    </Navbar>
-    }
-    header={<Header 
-            height={70} 
-            p="md"
-            sx={(theme) => ({ backgroundColor: '#FFFFFF'})} 
-            navbar={<Navbar width={{ sm: 300, lg: 250, base: 100, }}>
-        {
-          <Stack sx={(theme) => ({ backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0], height: 300 })}>
-            <Button variant="light" radius="lg" size="md" compact ><Link href='/imc'>Calcular IMC</Link></Button>
-            <Button variant="light" radius="lg" size="md" compact ><Link href='/calcular'>Calculo dietetico</Link></Button>
-            <Button variant="light" radius="lg" size="md" compact ><Link href='/buscar'>Buscar Alimento</Link></Button>
-            <Button variant="light" radius="lg" size="md" compact onClick={onLogOut}>Cerrar sesión</Button>
+      styles={{
+        main: {
+          background: '#FFFFFF',
+        },
+      }}
+      navbarOffsetBreakpoint="sm"
+      asideOffsetBreakpoint="sm"
+      navbar={
+        <Navbar p="md" hiddenBreakpoint="sm" hidden={!opened} width={{ sm: 200, lg: 300 }} sx={(theme) => ({ backgroundColor: '#FFFFFF' })}>
 
+          <Stack sx={(theme) => ({ backgroundColor: '#FFFFFF' })}>
+            <Button sx={(theme) => ({ backgroundColor: '#FAAD82', '&:hover': { backgroundColor: theme.fn.darken('#FFD482', 0.05), }, })} radius="lg" size="md" compact ><Link href='/imc'>Calcular IMC</Link></Button>
+            <Button sx={(theme) => ({ backgroundColor: '#FAAD82', '&:hover': { backgroundColor: theme.fn.darken('#FFD482', 0.05), }, })} radius="lg" size="md" compact ><Link href='/calcular'>Calculo dietetico</Link></Button>
+            <Button sx={(theme) => ({ backgroundColor: '#FAAD82', '&:hover': { backgroundColor: theme.fn.darken('#FFD482', 0.05), }, })} radius="lg" size="md" compact ><Link href='/buscar'>Buscar Alimento</Link></Button>
+            <Button sx={(theme) => ({ backgroundColor: '#FAAD82', '&:hover': { backgroundColor: theme.fn.darken('#FFD482', 0.05), }, })} radius="lg" size="md" compact onClick={onLogOut}>Cerrar sesión</Button>
           </Stack>
+        </Navbar>
+      }
+      header={<Header
+        height={70}
+        p="md"
+        sx={(theme) => ({ backgroundColor: '#FFFFFF' })}
+        navbar={<Navbar width={{ sm: 300, lg: 250, base: 100, }}>
+          {
+            <Stack sx={(theme) => ({ backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0], height: 300 })}>
+              <Button variant="light" radius="lg" size="md" compact ><Link href='/imc'>Calcular IMC</Link></Button>
+              <Button variant="light" radius="lg" size="md" compact ><Link href='/calcular'>Calculo diétetico</Link></Button>
+              <Button variant="light" radius="lg" size="md" compact ><Link href='/buscar'>Buscar alimento</Link></Button>
+              <Button variant="light" radius="lg" size="md" compact onClick={onLogOut}>Cerrar sesión</Button>
+
+            </Stack>
+
+          }
+        </Navbar>
 
         }
-      </Navbar>
 
-      }
+        header={<Header height={60} p="xs">{<Title aling="center" color="Black" order={1}>{tituloPagina}</Title>}</Header>}
+        styles={(theme) => ({
+          main: { backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0] },
+        })}
 
-      header={<Header height={60} p="xs">{<Title aling="center" color="Black" order={1}>{tituloPagina}</Title>}</Header>}
-      styles={(theme) => ({
-        main: { backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0] },
-      })}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+          <MediaQuery largerThan="sm" styles={{ display: 'none' }}>
+            <Burger
+              opened={opened}
+              onClick={() => setOpened((o) => !o)}
+              size="sm"
+              color={theme.colors.gray[6]}
+              mr="xl"
+            />
+          </MediaQuery>
+          <div style={{ width: 50, marginLeft: '0', marginRight: '0' }}>
+            <Image
+              radius="md"
+              src="https://mir-s3-cdn-cf.behance.net/projects/404/a53a7748241921.Y3JvcCwxMjcyLDk5NSwwLDM2NA.jpg"
+              alt="Random image"
+            />
+          </div>
+          <Text aling="center" color='#FAAD82' size="xl" transform="uppercase">{tituloPagina}</Text>
+        </div>
+      </Header>}
 
     >
-      <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
-        <MediaQuery largerThan="sm" styles={{ display: 'none' }}>
-          <Burger
-            opened={opened}
-            onClick={() => setOpened((o) => !o)}
-            size="sm"
-            color={theme.colors.gray[6]}
-            mr="xl"
-          />
-        </MediaQuery>
-        <div style={{ width: 50, marginLeft: '0', marginRight: '0' }}>
-      <Image
-        radius="md"
-        src="https://www.logogenio.es/download/preview/medium/10962077"
-        alt="Random unsplash image"
-      />
-    </div>
-        <Text aling="center" color='#A1C298'  size="xl" transform="uppercase">{tituloPagina}</Text>
-      </div>
-    </Header>}
-    
-  >
-   {children}     
+      {children}
     </AppShell>
 
   )
