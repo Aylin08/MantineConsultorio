@@ -34,8 +34,7 @@ const Appsh = ({ children, tituloPagina }) => {
             <Button sx={(theme) => ({ backgroundColor: '#FAAD82', '&:hover': { backgroundColor: theme.fn.darken('#FFD482', 0.05), }, })} radius="lg" size="md" compact ><Link href='/imc'>Calcular IMC</Link></Button>
             <Button sx={(theme) => ({ backgroundColor: '#FAAD82', '&:hover': { backgroundColor: theme.fn.darken('#FFD482', 0.05), }, })} radius="lg" size="md" compact ><Link href='/calcular'>Calculo dietetico</Link></Button>
             <Button sx={(theme) => ({ backgroundColor: '#FAAD82', '&:hover': { backgroundColor: theme.fn.darken('#FFD482', 0.05), }, })} radius="lg" size="md" compact ><Link href='/buscar'>Buscar Alimento</Link></Button>
-            <Button sx={(theme) => ({ backgroundColor: '#FAAD82', '&:hover': { backgroundColor: theme.fn.darken('#FFD482', 0.05), }, })} radius="lg" size="md" compact onClick={onLogOut}>Cerrar sesión</Button>
-          </Stack>
+           </Stack>
         </Navbar>
       }
       header={<Header

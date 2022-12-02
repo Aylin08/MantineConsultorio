@@ -30,6 +30,7 @@ const CalculosBmi = ({children,formula, setGeb, genero, peso, altura, edad, fa, 
     
       /**Operations depending on the selected formula */
       const calculo = () => {
+       
     /**Condition if you are a woman  */ 
         if (genero == 'Femenino') {
           /**Formula OMS */
@@ -72,7 +73,7 @@ const CalculosBmi = ({children,formula, setGeb, genero, peso, altura, edad, fa, 
             }
             else if(edad<18)
             {
-              alert('Debes de tener más de 18 años');
+              alert('Debes de tener más de 18 años, para el calculo de Harries');
             }
           }
           
@@ -117,7 +118,7 @@ const CalculosBmi = ({children,formula, setGeb, genero, peso, altura, edad, fa, 
             }
             else if(edad<18)
             {
-              alert('Debes de tener más de 18 años');
+              alert('Debes de tener más de 18 años, para el calculo de harries');
             }
           }
 
