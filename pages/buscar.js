@@ -15,7 +15,7 @@ const Buscar = () => {
         const respuesta = await fetch(url)
         const entradas = await respuesta.json()
         /**firebase data return*/
-        if (search != '') {
+        if (search != '' || search < 0) {
             setEntradaFilter(entradas.filter(entrada => {
                 return entrada.Alimento.toLowerCase().includes(search.toLowerCase());
             }));
