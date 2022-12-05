@@ -15,10 +15,16 @@ const Buscar = () => {
         const respuesta = await fetch(url)
         const entradas = await respuesta.json()
         /**firebase data return*/
-        setEntradaFilter(entradas.filter(entrada => {
-            return entrada.Alimento.toLowerCase().includes(search.toLowerCase());
-        }));
-        console.log(entradaFilter);
+        if (search != '') {
+            setEntradaFilter(entradas.filter(entrada => {
+                return entrada.Alimento.toLowerCase().includes(search.toLowerCase());
+            }));
+            console.log(entradaFilter);
+        }
+        else {
+            alert('No has ingresado datos para buscar');
+        }
+
     }
     /**Food Finder View */
     return (
