@@ -22,7 +22,7 @@ const Imc = () => {
     let etiqueta;
     let color;
     const imc = parseFloat(peso) / (parseFloat(altura) ** 2);
-    if (peso == '' || altura == '' || peso == 0 || altura == 0) {
+    if (peso == '' || altura == '' || peso == 0 || altura == 0 || peso < 0 || altura < 0) {
       etiqueta = 'Por favor verifica los datos que estás ingresando, recuerda no es posible realizar operaciones con campos vacíos o valores nulos'
       color = 'red'
       form.setValues({
