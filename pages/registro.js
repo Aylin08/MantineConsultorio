@@ -11,7 +11,8 @@ const Registro = () => {
     nombre: '',
     apellido: '',
     email: '',
-    pass: ''
+    pass: '',
+    rpass: '',
   });
 
   function onHandleChange(e) {
@@ -22,10 +23,16 @@ const Registro = () => {
 
   async function signUp() {
     // validations
-
-    const response = await firebase.auth.crearUsuario(input.email, input.pass);
-    router.push('/inicio');
-    alert('Te has registrado con éxito, ahora debes iniciar sesión');
+    if (nombre == '' ||
+      apellido == '' ||
+      email == '' ||
+      pass == '') {
+      alert('No puede dejar campos vacíos')
+    } else {
+      const response = await firebase.auth.crearUsuario(input.email, input.pass);
+      router.push('/inicio');
+      alert('Te has registrado con éxito, ahora debes iniciar sesión');
+    }
   }
 
   return (
@@ -53,14 +60,23 @@ const Registro = () => {
               </Center>
             </Card.Section>
             <Text weight={700} align="center" style={{ fontFamily: 'Greycliff CF, sans-serif' }} >Registrarse</Text>
-            <TextInput name='nombre' label="Ingrese su Nombre" placeholder="Nombre" onChange={e => onHandleChange(e)} />
-            <TextInput name='apellido' label="Ingrese su Apellido" placeholder="Apellido" onChange={e => onHandleChange(e)} />
-            <TextInput name='email' label="Ingrese su E-mail" placeholder="E-mail" onChange={e => onHandleChange(e)} />
+            <TextInput name='nombre' label="Ingrese su Nombre" placeholder="Nombre" onChange={e => onHandleChange(e)}
+              withAsterisk />
+            <TextInput name='apellido' label="Ingrese su Apellido" placeholder="Apellido" onChange={e => onHandleChange(e)}
+              withAsterisk />
+            <TextInput name='email' label="Ingrese su E-mail" placeholder="E-mail" onChange={e => onHandleChange(e)} withAsterisk />
             <PasswordInput
               name='pass'
               placeholder="Ingrese su contraseña"
               label="Contraseña"
-              onChange={e => onHandleChange(e)} />
+              onChange={e => onHandleChange(e)}
+              withAsterisk />
+            <PasswordInput
+              name='rpass'
+              placeholder="Ingrese nuevamente su contraseña"
+              label="Repita su contraseña"
+              onChange={e => onHandleChange(e)}
+              withAsterisk />
             <br></br>
             <Group position='center'>
               <Button sx={(theme) => ({ backgroundColor: '#FAAD82', '&:hover': { backgroundColor: theme.fn.darken('#FFD482', 0.05), }, })} onClick={signUp}>
