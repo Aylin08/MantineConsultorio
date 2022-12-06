@@ -64,7 +64,7 @@ const Login = () => {
             <Group position="center" mt="md" mb="xs">
               <br></br>
               <Button sx={(theme) => ({ backgroundColor: '#FAAD82', '&:hover': { backgroundColor: theme.fn.darken('#FFD482', 0.05), }, })} onClick={onLogin} >
-                Iniciar sesion
+                Iniciar sesión
               </Button>
               <p></p>
               <Link href='/registro'>

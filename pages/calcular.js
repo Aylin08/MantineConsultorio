@@ -59,9 +59,7 @@ const Calcular = () => {
                 hideControls
                 withAsterisk
                 min={0}
-                max={2.50}
-                defaultValue={0.00}
-                precision={2}
+                max={250}
                 value={altura}
                 id='h'
                 /** Assignment of value to the variable*/

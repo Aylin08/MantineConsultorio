@@ -1,5 +1,5 @@
 /** class that contains the menu with the options to choose */
-
+//  <Button sx={(theme) => ({ backgroundColor: '#A1C298', '&:hover': { backgroundColor: theme.fn.darken('#A1C298', 0.05), }, })} radius="lg" size="md" compact onClick={onLogOut}>Cerrar sesión</Button>
 import React from 'react'
 import Link from 'next/link'
 import { AppShell, Button, Stack, Navbar, Header, Title, MediaQuery, Burger, Text, useMantineTheme, Image } from '@mantine/core';
@@ -34,7 +34,8 @@ const Appsh = ({ children, tituloPagina }) => {
             <Button sx={(theme) => ({ backgroundColor: '#FAAD82', '&:hover': { backgroundColor: theme.fn.darken('#FFD482', 0.05), }, })} radius="lg" size="md" compact ><Link href='/imc'>Calcular IMC</Link></Button>
             <Button sx={(theme) => ({ backgroundColor: '#FAAD82', '&:hover': { backgroundColor: theme.fn.darken('#FFD482', 0.05), }, })} radius="lg" size="md" compact ><Link href='/calcular'>Calculo dietetico</Link></Button>
             <Button sx={(theme) => ({ backgroundColor: '#FAAD82', '&:hover': { backgroundColor: theme.fn.darken('#FFD482', 0.05), }, })} radius="lg" size="md" compact ><Link href='/buscar'>Buscar Alimento</Link></Button>
-           </Stack>
+           
+          </Stack>
         </Navbar>
       }
       header={<Header

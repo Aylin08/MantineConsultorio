@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button, Notification } from '@mantine/core';
+import { IconCheck, IconX } from '@tabler/icons'
 
 const CalculosBmi = ({ children, formula, setGeb, genero, peso, altura, edad, fa, setget }) => {
 
@@ -59,7 +60,7 @@ const CalculosBmi = ({ children, formula, setGeb, genero, peso, altura, edad, fa
           /**Formula HARRIS */
           else if (formula == 'Harries') {
             if (edad < 18) {
-              <Notification>Debes de tener más de 18 años, para el calculo de harries</Notification>
+              alert('Debes de tener mas de 18 años para el calculo de harries')
             }
             else {
               const geb = (655.1 + (9.56 * parseFloat(peso)) + (1.85 * parseFloat(altura)) - (4.68 * parseFloat(edad)));
@@ -67,6 +68,14 @@ const CalculosBmi = ({ children, formula, setGeb, genero, peso, altura, edad, fa
               const ter = geb * 0.10;
               setget(geb);
               setGeb(fac + ter);
+
+            }
+          }
+          else {
+
+            if (edad < 18) {
+              alert('debes tener mas de 18')
+            } else {
               if (edad >= 18 && edad <= 29) {
                 setGeb((11.02 * (parseFloat(peso)) + 679) * factor());
                 setget((11.02 * (parseFloat(peso)) + 679));
@@ -80,8 +89,6 @@ const CalculosBmi = ({ children, formula, setGeb, genero, peso, altura, edad, fa
                 setget((10.98 * (parseFloat(peso)) + 520));
               }
             }
-
-
           }
 
 
@@ -103,8 +110,11 @@ const CalculosBmi = ({ children, formula, setGeb, genero, peso, altura, edad, fa
           else if (formula == 'Harries') {
             if (edad < 18) {
 
-
-              <Notification title='ERROR :('>Debes de tener más de 18 años, para el calculo de harries</Notification>
+              /* <Notification icon={<IconX size={18} />} color="red">
+                 Bummer! Notification without title
+               </Notification>*/
+              alert('Debes de tener mas de 18 años para el calculo de harries')
+              // <Notification title='ERROR :('>Debes de tener más de 18 años, para el calculo de harries</Notification>
             }
             else {
               const geb = (66.5 + (13.75 * parseFloat(peso)) + (5 * parseFloat(altura)) - (6.78 * parseFloat(edad)));
@@ -112,6 +122,14 @@ const CalculosBmi = ({ children, formula, setGeb, genero, peso, altura, edad, fa
               const ter = geb * 0.10;
               setget(geb);
               setGeb(fac + ter);
+            }
+          }
+          else {
+
+            if (edad < 18) {
+              alert('debes tener mas de 18')
+            }
+            else {
               if (edad >= 18 && edad <= 29) {
                 setGeb((13.37 * (parseFloat(peso)) + 747) * factor());
                 setget((13.37 * (parseFloat(peso)) + 747));
@@ -124,8 +142,9 @@ const CalculosBmi = ({ children, formula, setGeb, genero, peso, altura, edad, fa
                 setGeb((14.21 * (parseFloat(peso)) + 429) * factor());
                 setget((14.21 * (parseFloat(peso)) + 429));
               }
-
             }
+
+
           }
 
         }
