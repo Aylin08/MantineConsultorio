@@ -12,14 +12,18 @@ const Login = () => {
   const [pass, setPass] = useState('')
 
   async function onLogin() {
-    await firebase.auth.loginUsuario(email, pass)
-      .then(response => {
-        store.setUsuario(response.user.accessToken);
-        router.push('/inicio');
-      })
-      .catch(e => {
-        alert(`Usuario no registrado`);
-      })
+    if (email == '' || pass == '') {
+      alert(`verifica tus campos`);
+    } else {
+      await firebase.auth.loginUsuario(email, pass)
+        .then(response => {
+          store.setUsuario(response.user.accessToken);
+          router.push('/inicio');
+        })
+        .catch(e => {
+          alert(`Usuario no registrado`);
+        })
+    }
   }
 
   return (
@@ -49,11 +53,13 @@ const Login = () => {
               </Center>
             </Card.Section>
             <Text weight={700} align="center" style={{ fontFamily: 'Greycliff CF, sans-serif' }} >Iniciar Sesión</Text>
-            <TextInput label="Ingrese su E-mail" placeholder="E-mail" value={email} onChange={(e) => setEmail(e.target.value)} />
+            <TextInput label="Ingrese su E-mail" placeholder="E-mail" value={email} onChange={(e) => setEmail(e.target.value)}
+              withAsterisk />
             <PasswordInput
               placeholder="Ingrese su contraseña"
               label="Contraseña"
               value={pass} onChange={(e) => setPass(e.target.value)}
+              withAsterisk
             />
             <Group position="center" mt="md" mb="xs">
               <br></br>

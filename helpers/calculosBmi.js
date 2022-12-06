@@ -30,7 +30,7 @@ const CalculosBmi = ({ children, formula, setGeb, genero, peso, altura, edad, fa
 
   /**Operations depending on the selected formula */
   const calculo = () => {
-    if (peso == '' || altura == '' || peso == 0 || altura == 0 || fa == '' || genero == '') {
+    if (peso == '' || altura == '' || peso == 0 || altura == 0 || fa == '' || genero == '' || edad == '') {
       alert('Verifica los valores, recuerda que no deben ser nulos, o estar campos vacíos');
     }
 
@@ -63,8 +63,6 @@ const CalculosBmi = ({ children, formula, setGeb, genero, peso, altura, edad, fa
             const ter = geb * 0.10;
             setget(geb);
             setGeb(fac + ter);
-          }
-          else {
             if (edad >= 18 && edad <= 29) {
               setGeb((11.02 * (parseFloat(peso)) + 679) * factor());
               setget((11.02 * (parseFloat(peso)) + 679));
@@ -80,6 +78,11 @@ const CalculosBmi = ({ children, formula, setGeb, genero, peso, altura, edad, fa
             else if (edad < 18) {
               alert('Debes de tener más de 18 años, para el calculo de Harries');
             }
+
+
+          }
+          else {
+
           }
 
 
@@ -105,8 +108,6 @@ const CalculosBmi = ({ children, formula, setGeb, genero, peso, altura, edad, fa
             const ter = geb * 0.10;
             setget(geb);
             setGeb(fac + ter);
-          }
-          else {
             if (edad >= 18 && edad <= 29) {
               setGeb((13.37 * (parseFloat(peso)) + 747) * factor());
               setget((13.37 * (parseFloat(peso)) + 747));
@@ -122,6 +123,9 @@ const CalculosBmi = ({ children, formula, setGeb, genero, peso, altura, edad, fa
             else if (edad < 18) {
               alert('Debes de tener más de 18 años, para el calculo de harries');
             }
+          }
+          else {
+            
           }
 
         }
