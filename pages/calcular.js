@@ -3,7 +3,7 @@ import React from 'react'
 import { useState } from 'react';
 import Layout from '../components/Layout'
 import CalculosBmi from '../helpers/calculosBmi';
-import { TextInput, NativeSelect, Card, Image, SimpleGrid, Text, Tabs, Modal, Box, Space, Stack, Center, Group } from '@mantine/core';
+import { NumberInput, NativeSelect, Card, Image, SimpleGrid, Text, Tabs, Modal, Box, Space, Stack, Center, Group } from '@mantine/core';
 import Appsh from '../components/Appsh';
 import PorcentajeMacro from '../components/PorcentajeMacro';
 import KilosMacro from '../components/KilosMacro';
@@ -13,8 +13,8 @@ import KilosMacro from '../components/KilosMacro';
 
 const Calcular = () => {
   /**Creation and declaration of variables*/
-  const [peso, setPeso] = useState("");
-  const [altura, setAltura] = useState("");
+  const [peso, setPeso] = useState(0);
+  const [altura, setAltura] = useState(0.00);
   const [edad, setEdad] = useState(0);
   const [genero, setGenero] = useState("");
   const [fa, setFa] = useState("");
@@ -39,26 +39,46 @@ const Calcular = () => {
                 y actividad física.</Text>
             </Group>
             <SimpleGrid cols={3}>
-              <TextInput
+              <NumberInput
                 placeholder="Ingrese su peso"
                 label="Peso (kg)"
+                hideControls
+                withAsterisk
+                min={0}
+                max={300}
+                defaultValue={0.00}
+                precision={2}
+                value={peso}
                 /** Assignment of value to the variable*/
-                onChange={(event) => setPeso(event.currentTarget.value)}
+                onChange={(event) => setPeso(event)}
                 id='w'
               />
-              <TextInput
+              <NumberInput
                 placeholder="Ingrese su altura"
                 label="Altura (cm)"
+                hideControls
+                withAsterisk
+                min={0}
+                max={2.50}
+                defaultValue={0.00}
+                precision={2}
+                value={altura}
                 id='h'
                 /** Assignment of value to the variable*/
-                onChange={(event) => setAltura(event.currentTarget.value)}
+                onChange={(event) => setAltura(event)}
               />
-              <TextInput
+              <NumberInput
                 placeholder="Edad"
                 label="Edad"
+                withAsterisk
+                hideControls
+                min={0}
+                max={120}
+                defaultValue={1}
                 id='e'
+                value={edad}
                 /** Assignment of value to the variable*/
-                onChange={(event) => setEdad(parseFloat(event.currentTarget.value))}
+                onChange={(event) => setEdad(event)}
               />
 
               <NativeSelect

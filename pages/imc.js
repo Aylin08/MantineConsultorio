@@ -1,5 +1,5 @@
 import React from 'react'
-import { Center, TextInput, Box, Group, Button, Text, Card, Image, Space } from '@mantine/core'
+import { Center, TextInput, Box, Group, Button, Text, Card, Image, Space, NumberInput } from '@mantine/core'
 import { useForm } from '@mantine/form'
 import Layout from '../components/Layout'
 import Appsh from '../components/Appsh'
@@ -65,19 +65,27 @@ const Imc = () => {
                 <Text color='#A1C298'>Aquí puedes calcular el Indice de Masa Corporal del paciente, ingresando solamente el peso y altura.</Text>
               </Group>
               <form onSubmit={form.onSubmit((values) => Calcular())}>
-                <TextInput
+                <NumberInput
                   label="Peso (kg)"
                   placeholder="Ingresa tu peso"
                   hideControls
                   withAsterisk
+                  min={0}
+                  max={300}
+                  defaultValue={0.00}
+                  precision={2}
                   {...form.getInputProps('peso')}
                 />
 
-                <TextInput
+                <NumberInput
                   label="Altura (m)"
                   placeholder="Ingresa tu altura (m)"
                   hideControls
                   withAsterisk
+                  min={0}
+                  max={2.5}
+                  defaultValue={0.00}
+                  precision={2}
                   {...form.getInputProps('altura')}
                 />
                 <Group position="center" mt="md">
